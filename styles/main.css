@@ -40,7 +40,6 @@ main {
     flex-direction: column;
     width: 20%;
     margin: 0;
-    /* align-self: flex-start; */
     gap: 5px;
 }
 
@@ -63,12 +62,19 @@ main {
 }
 
 .post {
-    padding: .5em 1%
+    padding: .5em 1%;
+    display: flex;
+}
+
+.post-albums {
+    display: flex;
+    gap: 2%;
 }
 
 .album-cover {
-    width: 25%;
+    width: 30%;
     max-width: 150px;
+    border: white 1px solid;
 }
 
 hr {
@@ -76,5 +82,10 @@ hr {
 }
 
 footer {
-    background-image: linear-gradient(blue, white);
+    text-align: center;
+}
+
+.footer-icon {
+    max-height: 2em;
+    
 }
