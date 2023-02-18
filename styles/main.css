@@ -59,11 +59,23 @@ main {
 #forum-container {
     border: white 2px solid;
     width: 82%;
+    display: flex;
+    flex-direction: column;
 }
 
 .post {
     padding: .5em 1%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid white;
+    border-radius: 10px;
+    
+    margin: .5em 1%;
+}
+
+.profile-name {
+    font-size: 2em;
 }
 
 .post-albums {
@@ -71,10 +83,19 @@ main {
     gap: 2%;
 }
 
+.album-figure {
+    margin: 0;
+}
+
 .album-cover {
-    width: 30%;
-    max-width: 150px;
+    /* width: 30%; */
+    max-width: 120px;
     border: white 1px solid;
+}
+
+.album-caption {
+    display: run-in;
+    width: 120px;
 }
 
 hr {
