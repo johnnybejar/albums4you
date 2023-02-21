@@ -76,13 +76,12 @@ main {
 }
 
 .profile-name {
-    font-size: 100%;
+    font-size: 2vw;
     width: 20%;
 }
 
 .post-albums {
     display: flex;
-    gap: 2%;
     width: 80%;
 }
 
@@ -93,12 +92,14 @@ main {
 
 .album-cover {
     width: 75%;
-    /* max-width: 200px; */
+    min-width: 100px;
     border: white 1px solid;
+    text-align: center;
 }
 
 .album-caption {
     width: 120px;
+    font-size: 1vw;
 }
 
 hr {
@@ -111,4 +112,8 @@ footer {
 
 .footer-icon {
     max-height: 2em;
+}
+
+@media screen and (max-width: 1130px) {
+    
 }
