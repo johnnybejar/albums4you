@@ -76,26 +76,28 @@ main {
 }
 
 .profile-name {
-    font-size: 2em;
+    font-size: 100%;
+    width: 20%;
 }
 
 .post-albums {
     display: flex;
     gap: 2%;
+    width: 80%;
 }
 
 .album-figure {
     margin: 0;
+    width: 25%;
 }
 
 .album-cover {
-    /* width: 30%; */
-    max-width: 120px;
+    width: 75%;
+    /* max-width: 200px; */
     border: white 1px solid;
 }
 
 .album-caption {
-    display: run-in;
     width: 120px;
 }
 
@@ -109,5 +111,4 @@ footer {
 
 .footer-icon {
     max-height: 2em;
-    
 }
