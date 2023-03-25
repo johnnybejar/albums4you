@@ -11,6 +11,13 @@ body {
   margin: auto;
 }
 
+/* This h5 is only used for sending error messages to the user */
+h5 {
+  color: rgb(255, 75, 75);
+  margin: 0.2em 0;
+  font-weight: bold;
+}
+
 header {
   display: flex;
   gap: 1%;
@@ -132,6 +139,15 @@ input {
 
 input#subscribe {
   width: 13px;
+}
+
+input#submit {
+  display: block;
+  width: 15%;
+  border: none;
+  margin: 0.1em 0 0 0;
+  padding: 0.5em 4%;
+  text-align: center;
 }
 
 hr {
