@@ -1,28 +1,28 @@
 <?php 
   session_start();
 	include './includes/title.php';
-?>	
+?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- John Bejar -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="styles/main.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
       rel="stylesheet"
-    />
+    >
     <title><?php if(isset($title)) {echo "$title&mdash;";} ?>RateThisAlbum</title>
   </head>
   <body>
     <header>
       <a href="index.php">
-        <img src="assets/icon.png" id="icon" alt="website-icon" />
+        <img src="assets/icon.png" id="icon" alt="website-icon">
         <h1 id="title">RateThisAlbum</h1>
       </a>
     </header>

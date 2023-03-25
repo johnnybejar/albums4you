@@ -73,7 +73,7 @@
             <label for="pass-verify">Verify Password: </label>
             <input name="pass-verify" id="pass-verify" type="password">
 
-            <label name="subscribe">Subscribe to Our Newsletter for New Music?</label>
+            <label for="subscribe">Subscribe to Our Newsletter for New Music?</label>
             <input name="subscribe" id="subscribe" type="checkbox">
 
             <input name="submit" id="submit" type="submit">
