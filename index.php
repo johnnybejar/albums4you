@@ -24,7 +24,7 @@
           alt="album-cover"
         />
         <figcaption class="album-caption">
-          Manger On Mchnichols<br />- Boldy James and Sterling Toles
+          Manger On Mcnichols<br />- Boldy James and Sterling Toles
         </figcaption>
       </figure>
       <figure class="album-figure">

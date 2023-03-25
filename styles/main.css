@@ -112,6 +112,28 @@ main {
   font-size: 1vw;
 }
 
+/* Styling for Register Page */
+#form {
+  width: 75%;
+}
+
+.register-field {
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 50%;
+  margin-bottom: 0.2em;
+}
+
+input#subscribe {
+  width: 13px;
+}
+
 hr {
   color: white;
 }
