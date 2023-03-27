@@ -44,8 +44,6 @@ header h1 {
 main {
   display: flex;
   flex-direction: row;
-  /* gap: 10%;  */
-  /* This gap will be likely be used for media queries when i get to that part */
 }
 
 #nav-bar {
@@ -143,7 +141,8 @@ input#subscribe {
 
 input#submit {
   display: block;
-  width: 15%;
+  width: 25%;
+  max-width: 70px;
   border: none;
   margin: 0.1em 0 0 0;
   padding: 0.5em 4%;
@@ -162,5 +161,16 @@ footer {
   max-height: 2em;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 930px) {
+  main {
+    flex-direction: column;
+  }
+
+  #nav-bar {
+    flex-direction: row;
+  }
+
+  #nav-bar li {
+    min-width: 65px;
+  }
 }
