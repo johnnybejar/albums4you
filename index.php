@@ -34,7 +34,7 @@
           alt="album-cover"
         >
         <figcaption class="album-caption">
-          Pacific<br />- Haruomi Hosono
+          Pacific<br>- Haruomi Hosono
         </figcaption>
       </figure>
       <figure class="album-figure">
