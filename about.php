@@ -5,7 +5,7 @@
 
 <section id="about-section">
   <p>
-    A website where you can share your favorite albums with other people
+    A website where you can share 4 of your most favorite albums with other people
     on the Internet!
   </p>
 </section>

@@ -99,10 +99,13 @@ main {
 
 .post-albums {
   display: flex;
+  justify-content: center;
   width: 80%;
 }
 
 .album-figure {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   width: 25%;
 }
@@ -115,8 +118,14 @@ main {
 }
 
 .album-caption {
+  display: flex;
+  flex-direction: column;
   width: 120px;
   font-size: 1vw;
+}
+
+.album-caption p {
+  margin: 0;
 }
 
 /* Styling for Register Page */
@@ -160,6 +169,11 @@ footer {
 
 .footer-icon {
   max-height: 2em;
+}
+
+.register-success {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 1130px) {

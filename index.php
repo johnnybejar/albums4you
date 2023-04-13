@@ -14,7 +14,8 @@
           alt="album-cover"
         >
         <figcaption class="album-caption">
-          The Cold Vein<br>- Cannibal Ox
+          <span class="album-name">The Cold Vein</span>
+          <span class="album-artist">- Cannibal Ox</span>
         </figcaption>
       </figure>
       <figure class="album-figure">
@@ -24,7 +25,8 @@
           alt="album-cover"
         >
         <figcaption class="album-caption">
-          Manger On Mcnichols<br>- Boldy James and Sterling Toles
+          <span class="album-name">Manger On Mcnichols</span>
+          <span class="album-artist">- Boldy James and Sterling Toles</span>
         </figcaption>
       </figure>
       <figure class="album-figure">
@@ -34,7 +36,8 @@
           alt="album-cover"
         >
         <figcaption class="album-caption">
-          Pacific<br />- Haruomi Hosono
+          <span class="album-name">Pacific</span>
+          <span class="album-artist">- Haruomi Hosono</span>
         </figcaption>
       </figure>
       <figure class="album-figure">
@@ -44,7 +47,8 @@
           alt="album-cover"
         >
         <figcaption class="album-caption">
-          The Black Saint and the Sinner Lady<br>- Charles Mingus
+          <span class="album-name">The Black Saint and the Sinner Lady</span>
+          <span class="album-artist">- Charles Mingus</span>
         </figcaption>
       </figure>
     </div>

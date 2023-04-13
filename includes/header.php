@@ -23,7 +23,7 @@
     <header>
       <a href="index.php">
         <img src="assets/icon.png" id="icon" alt="website-icon">
-        <h1 id="title">RateThisAlbum</h1>
+        <h1 id="title">Albums4You</h1>
       </a>
     </header>
     <main>

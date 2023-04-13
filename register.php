@@ -33,22 +33,46 @@
             $errors['password'] = 'You did not enter a password';
         }
 
-        if (!empty($_POST['subscribe'])) {
-            $subscribe = $_POST['subscribe'];
+        require_once '../../../mysqli_connect.php';
+        $sql = 'SELECT email from A4Y_Users where email = ?';
+        $stmt = mysqli_prepare($dbc, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $email);
+        mysqli_stmt_execute($stmt);
+        $result=mysqli_stmt_get_result($stmt);
+        if (mysqli_num_rows($result) >=1) {
+            $errors['exists'] = 'That email already exists in the database. Please log in or enter a different email.';
         }
+        mysqli_free_result($result);
 
+        if (!empty($_POST['subscribe'])) {
+            $subscribe = 1;
+        } else {
+            $subscribe = 0;
+        }
         if (!$errors) {
-            echo "Thank you for registering with us, $username!<br>";
-            if (isset($subscribe)) {
-                echo "Your email is $email and you have chosen to subscribe to our newsletter!<br>";
+            $folder = preg_replace("/[^a-zA-Z0-9]/","", $email);
+		    $folder = strtolower($folder);
+
+            $sql2 = "INSERT INTO A4Y_Users (username, email, pass, folder, subscribe) VALUES (?, ?, ?, ?, ?)";
+            $stmt2 = mysqli_prepare($dbc, $sql2);
+            $pwHash = password_hash($password, PASSWORD_DEFAULT);
+            mysqli_stmt_bind_param($stmt2, 'ssssi', $username, $email, $pwHash, $folder, $subscribe);
+            mysqli_stmt_execute($stmt2);
+            echo "<section class=\"register-success\">";
+            if (mysqli_stmt_affected_rows($stmt2)) {
+                if ($subscribe == 1) {
+                    echo "<h2>Thank you for registering with us, $username! You have chosen to subscribe to our newsletter!</h2>";
+                } else {
+                    echo "<h2>Thank you for registering with us, $username! You did not subscribe to our newsletter.</h2>";
+                }
+                echo "<h3>You can now post on our forum.</h3>";
             } else {
-                echo "Your email is $email and you did not subscribe to our newsletter.<br><br>";
+                echo "<h2>We're sorry. We are unable to add your account at this time.</h2><h3>Please try again later</h3>";
             }
-            echo "You can now post on our forum.";
+            echo "</section>";
             include 'includes/footer.php'; 
             exit;
         }
-
     }
 
 ?>
@@ -62,7 +86,10 @@
             <input name="username" id="username" type="text"
             <?php if (isset($username)) echo ' value="' . htmlspecialchars($username) . '"'?>>
 
-            <?php if (isset($errors['email'])) echo "<h5>$errors[email]</h5>";  ?>
+            <?php 
+            if (isset($errors['email'])) echo "<h5>$errors[email]</h5>"; 
+            if (isset($errors['exists'])) echo "<h5>$errors[exists]</h5>";
+            ?>
             <label for="email">Email: </label>
             <input name="email" id="email" type="text"
             <?php if (isset($email)) echo ' value="' . htmlspecialchars($email) . '"'?>>
