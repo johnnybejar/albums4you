@@ -20,15 +20,17 @@ h5 {
 
 header {
   display: flex;
-  gap: 1%;
-  align-items: center;
   justify-content: center;
   border-bottom: 2px white solid;
+  padding: 1em 0;
   margin-bottom: 1em;
 }
 
 header a {
   display: flex;
+  gap: 1%;
+  align-items: center;
+  text-decoration: none;
 }
 
 #icon {
@@ -38,14 +40,12 @@ header a {
 header h1 {
   font-size: 3.5em;
   color: white;
-  text-decoration: none;
+  margin: 0;
 }
 
 main {
   display: flex;
   flex-direction: row;
-  /* gap: 10%;  */
-  /* This gap will be likely be used for media queries when i get to that part */
 }
 
 #nav-bar {
@@ -66,6 +66,11 @@ main {
   line-height: 2.5em;
   border: white solid 2px;
   text-align: center;
+}
+
+#nav-bar li:hover {
+  transition: 500ms;
+  background-color: rgba(0, 23, 156);
 }
 
 #nav-bar li a {
@@ -135,6 +140,8 @@ main {
 
 .register-field {
   width: 100%;
+  margin: 0;
+  padding: 0.5em 2%;
 }
 
 label {
@@ -152,7 +159,8 @@ input#subscribe {
 
 input#submit {
   display: block;
-  width: 15%;
+  width: 25%;
+  min-width: 70px;
   border: none;
   margin: 0.1em 0 0 0;
   padding: 0.5em 4%;
@@ -164,7 +172,11 @@ hr {
 }
 
 footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+  margin-bottom: 0.6em;
 }
 
 .footer-icon {
@@ -176,5 +188,25 @@ footer {
   flex-direction: column;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 930px) {
+  main {
+    flex-direction: column;
+  }
+
+  #forum-container {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  #form {
+    width: 95%;
+  }
+
+  #nav-bar {
+    flex-direction: row;
+  }
+
+  #nav-bar li {
+    min-width: 65px;
+  }
 }

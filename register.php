@@ -103,7 +103,7 @@
             <label for="subscribe">Subscribe to Our Newsletter for New Music?</label>
             <input name="subscribe" id="subscribe" type="checkbox">
 
-            <input name="submit" id="submit" type="submit">
+            <input name="submit" id="submit" type="submit" value="Register">
     </fieldset>
 </form>
 <?php
