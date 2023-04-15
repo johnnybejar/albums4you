@@ -11,8 +11,13 @@ body {
   margin: auto;
 }
 
-/* This h5 is only used for sending error messages to the user */
-h5 {
+#here {
+  text-decoration: underline;
+}
+
+/* This is used for sending error messages to the user */
+.warning {
+  display: block;
   color: rgb(255, 75, 75);
   margin: 0.2em 0;
   font-weight: bold;
@@ -134,14 +139,8 @@ main {
 }
 
 /* Styling for Register Page */
-#form {
-  width: 75%;
-}
-
-.register-field {
-  width: 100%;
-  margin: 0;
-  padding: 0.5em 2%;
+.form {
+  width: 82%;
 }
 
 label {
@@ -183,7 +182,7 @@ footer {
   max-height: 2em;
 }
 
-.register-success {
+.form-success {
   display: flex;
   flex-direction: column;
 }

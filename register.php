@@ -58,7 +58,7 @@
             $pwHash = password_hash($password, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt2, 'ssssi', $username, $email, $pwHash, $folder, $subscribe);
             mysqli_stmt_execute($stmt2);
-            echo "<section class=\"register-success\">";
+            echo "<section class=\"form-success\">";
             if (mysqli_stmt_affected_rows($stmt2)) {
                 if ($subscribe == 1) {
                     echo "<h2>Thank you for registering with us, $username! You have chosen to subscribe to our newsletter!</h2>";
@@ -76,25 +76,25 @@
     }
 
 ?>
-<form method="post" action="register.php" id="form">
+<form method="post" action="register.php" class="form">
     <fieldset class="register-field">
         <legend>Register</legend>
-            <?php if (isset($errors)) echo'<h3 class="warning">Please fix the item(s) indicated.</h3>'; ?>
+            <?php if (isset($errors)) echo'<span class="warning">Please fix the item(s) indicated.</span>'; ?>
 
-            <?php if (isset($errors['username'])) echo "<h5>$errors[username]</h5>";  ?>
+            <?php if (isset($errors['username'])) echo "<span class=\"warning\">$errors[username]</span>";  ?>
             <label for="username">Username: </label>
             <input name="username" id="username" type="text"
             <?php if (isset($username)) echo ' value="' . htmlspecialchars($username) . '"'?>>
 
             <?php 
-            if (isset($errors['email'])) echo "<h5>$errors[email]</h5>"; 
-            if (isset($errors['exists'])) echo "<h5>$errors[exists]</h5>";
+            if (isset($errors['email'])) echo "<span class=\"warning\">$errors[email]</span>"; 
+            if (isset($errors['exists'])) echo "<span class=\"warning\">$errors[exists]</span>";
             ?>
             <label for="email">Email: </label>
             <input name="email" id="email" type="text"
             <?php if (isset($email)) echo ' value="' . htmlspecialchars($email) . '"'?>>
 
-            <?php if (isset($errors['password'])) echo "<h5>$errors[password]</h5>";  ?>
+            <?php if (isset($errors['password'])) echo "<span class=\"warning\">$errors[password]</span>";  ?>
             <label for="password">Password: </label>
             <input name="password" id="password" type="password">
             <label for="pass-verify">Verify Password: </label>
