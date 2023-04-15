@@ -6,6 +6,7 @@
 
 body {
   width: 70%;
+  max-width: 1300px;
   background-color: rgba(0, 23, 156, 0.8);
   color: white;
   margin: auto;
@@ -103,7 +104,7 @@ main {
 }
 
 .profile-name {
-  font-size: 2vw;
+  font-size: 2em;
   width: 20%;
 }
 
@@ -116,13 +117,16 @@ main {
 .album-figure {
   display: flex;
   flex-direction: column;
+  /* max-height: 200px; */
   margin: 0;
   width: 25%;
+  max-width: 200px;
 }
 
 .album-cover {
-  width: 75%;
+  width: 100%;
   min-width: 100px;
+  max-width: 200px;
   border: white 1px solid;
   text-align: center;
 }
@@ -130,8 +134,9 @@ main {
 .album-caption {
   display: flex;
   flex-direction: column;
-  width: 120px;
-  font-size: 1vw;
+  word-wrap: break-word;
+  width: 100%;
+  font-size: 1em;
 }
 
 .album-caption p {
