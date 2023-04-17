@@ -208,6 +208,7 @@ footer {
 
   #nav-bar {
     flex-direction: row;
+    width: 100%;
   }
 
   #nav-bar li {

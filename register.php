@@ -34,13 +34,18 @@
         }
 
         require_once '../../../mysqli_connect.php';
-        $sql = 'SELECT email from A4Y_Users where email = ?';
+        $sql = 'SELECT email, username from A4Y_Users where email = ? OR username = ?';
         $stmt = mysqli_prepare($dbc, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $email);
+        mysqli_stmt_bind_param($stmt, 'ss', $email, $username);
         mysqli_stmt_execute($stmt);
         $result=mysqli_stmt_get_result($stmt);
         if (mysqli_num_rows($result) >=1) {
-            $errors['exists'] = 'That email already exists in the database. Please log in or enter a different email.';
+            $res = mysqli_fetch_assoc($result);
+            if ($res['email'] == $email) {
+                $errors['exists'] = 'That email already exists in the database. Please log in or enter a different email.';
+            } else {
+                $errors['exists'] = 'That username already exists in the database. Please log in or enter a different username.';
+            }
         }
         mysqli_free_result($result);
 
@@ -79,8 +84,8 @@
 <form method="post" action="register.php" class="form">
     <fieldset class="register-field">
         <legend>Register</legend>
-            <?php if (isset($errors)) echo'<span class="warning">Please fix the item(s) indicated.</span>'; ?>
-
+            <?php if (isset($errors)) echo'<span class="warning">Please fix the item(s) indicated.</span>';
+            if (isset($errors['exists'])) echo "<span class=\"warning\">$errors[exists]</span>"; ?>
             <?php if (isset($errors['username'])) echo "<span class=\"warning\">$errors[username]</span>";  ?>
             <label for="username">Username: </label>
             <input name="username" id="username" type="text"
@@ -88,7 +93,6 @@
 
             <?php 
             if (isset($errors['email'])) echo "<span class=\"warning\">$errors[email]</span>"; 
-            if (isset($errors['exists'])) echo "<span class=\"warning\">$errors[exists]</span>";
             ?>
             <label for="email">Email: </label>
             <input name="email" id="email" type="text"
