@@ -55,9 +55,8 @@
             $subscribe = 0;
         }
         if (!$errors) {
-            $folder = preg_replace("/[^a-zA-Z0-9]/","", $email);
-		    $folder = strtolower($folder);
-
+            // Folder name will be the username as the username is a foreign key in Posts
+            $folder = $username;
             $sql2 = "INSERT INTO A4Y_Users (username, email, pass, folder, subscribe) VALUES (?, ?, ?, ?, ?)";
             $stmt2 = mysqli_prepare($dbc, $sql2);
             $pwHash = password_hash($password, PASSWORD_DEFAULT);
