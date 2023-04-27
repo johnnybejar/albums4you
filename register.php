@@ -42,9 +42,9 @@
         if (mysqli_num_rows($result) >=1) {
             $res = mysqli_fetch_assoc($result);
             if ($res['email'] == $email) {
-                $errors['exists'] = 'That email already exists in the database. Please log in or enter a different email.';
+                $errors['exists'] = 'That email already exists. Please log in or enter a different email.';
             } else {
-                $errors['exists'] = 'That username already exists in the database. Please log in or enter a different username.';
+                $errors['exists'] = 'That username already exists. Please log in or enter a different username.';
             }
         }
         mysqli_free_result($result);
