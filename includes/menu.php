@@ -7,7 +7,13 @@
                 echo '<li><a href="login.php">Login</a></li>';
                 echo '<li><a href="register.php">Register</a></li>';
             } else {
-                echo '<li><a href="logged_out.php">Logout</a></li>';
+                if ($currentPage == 'create_post.php') {
+                    echo '<li id="here"><a href="create_post.php">Create Post</a></li>';
+                    echo '<li><a href="logged_out.php">Logout</a></li>';
+                } else {
+                    echo '<li><a href="create_post.php">Create Post</a></li>';
+                    echo '<li><a href="logged_out.php">Logout</a></li>';
+                }
             }
         } else {
             if ($currentPage == 'register.php') {

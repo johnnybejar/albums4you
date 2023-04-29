@@ -104,7 +104,7 @@ main {
 }
 
 .profile-name {
-  font-size: 2em;
+  font-size: 1.6em;
   width: 20%;
 }
 
@@ -190,6 +190,32 @@ footer {
 .form-success {
   display: flex;
   flex-direction: column;
+}
+
+.album-input {
+  display: flex;
+}
+
+.input-title {
+  width: 30%;
+}
+
+.input-artist {
+  width: 30%;
+}
+
+.input-cover {
+  width: 40%;
+}
+
+#post-submit {
+  /* display: block; */
+  width: 25%;
+  min-width: 70px;
+  /* border: none; */
+  margin: 0.2em 0 0 0;
+  padding: 0.5em 4%;
+  text-align: center;
 }
 
 @media screen and (max-width: 930px) {

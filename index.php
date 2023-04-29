@@ -16,13 +16,6 @@
 <div id="forum-container">
   <?php
     while ($post = mysqli_fetch_assoc($result)) {
-      // $postInfo = array();
-      // $albums = array();
-      // $album1 = array();
-      // $album2 = array();
-      // $album3 = array();
-      // $album4 = array();
-
       $postInfo['username'] = $post['authorun'];
 
       $postInfo['id'] = $post['postid'];
@@ -57,17 +50,14 @@
       $posts[] = $postInfo;
       
     }
-    // print_r($posts);
     
+    // Loop through all the posts
     foreach ($posts as $post) {
-      print_r($post);
-      $imgDir = '../../../a4y_uploads/' . $post['username'] . '/' . $post['id'];
-      $files = scandir("assets");
-      // echo $imgDir;
-      // echo $files;
-
       echo '<div class="post">';
       echo "<span class=\"profile-name\">@{$post['username']}</span>";
+      echo '<div class="post-albums">';
+
+      // Loop through all the albums in the post
       foreach ($post['albums'] as $album) {
 
         $imagePath = "../a4y_uploads/{$post['username']}/{$post['id']}/{$album['image']}";
@@ -89,71 +79,10 @@
         echo '</figcaption>';
         echo '</figure>';
       }
+      echo '</div>';
+      echo '</div>';
     }
-
-    // echo '<div class="post">';
-    // echo "<span class=\"profile-name\">@{$post['username']}</span>";
-
-    // foreach ($posts as $post) {
-    //   echo '<figure class="album-figure">';
-    //   echo "<img class=\"album-cover\" src=\"assets/hardcoded-assets/the-cold-vein.jpg\" alt=\"album-cover\">";
-    //   echo '<figcaption class="album-caption">';
-    //   echo "<span class=\"album-name\">{$post['']}</span>";
-    //   echo "<span class=\"album-artist\">- {$post['']}</span>";
-    //   echo '</figcaption>';
-    //   echo '</figure>';
-    // }
-
   ?>
-  <!-- <div class="post">
-    <span class="profile-name">@john-bejar</span>
-    <div class="post-albums">
-      <figure class="album-figure">
-        <img
-          class="album-cover"
-          src="assets/hardcoded-assets/the-cold-vein.jpg"
-          alt="album-cover"
-        >
-        <figcaption class="album-caption">
-          <span class="album-name">The Cold Vein</span>
-          <span class="album-artist">- Cannibal Ox</span>
-        </figcaption>
-      </figure>
-      <figure class="album-figure">
-        <img
-          class="album-cover"
-          src="assets/hardcoded-assets/manger-on-mcnichols.webp"
-          alt="album-cover"
-        >
-        <figcaption class="album-caption">
-          <span class="album-name">Manger On Mcnichols</span>
-          <span class="album-artist">- Boldy James and Sterling Toles</span>
-        </figcaption>
-      </figure>
-      <figure class="album-figure">
-        <img
-          class="album-cover"
-          src="assets/hardcoded-assets/pacific.png"
-          alt="album-cover"
-        >
-        <figcaption class="album-caption">
-          <span class="album-name">Pacific</span>
-          <span class="album-artist">- Haruomi Hosono</span>
-        </figcaption>
-      </figure>
-      <figure class="album-figure">
-        <img
-          class="album-cover"
-          src="assets/hardcoded-assets/black_saint.jpg"
-          alt="album-cover"
-        >
-        <figcaption class="album-caption">
-          <span class="album-name">The Black Saint and the Sinner Lady</span>
-          <span class="album-artist">- Charles Mingus</span>
-        </figcaption>
-      </figure>
-    </div>
-  </div> -->
 </div>
 
 <?php
