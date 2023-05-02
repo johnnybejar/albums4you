@@ -99,24 +99,64 @@
         mysqli_stmt_execute($stmt);
         if (mysqli_stmt_affected_rows($stmt)) {
             // Now uploading images...
+            echo '<span>Uploading images...</span>';
             $lastID = mysqli_insert_id($dbc);
-            $targetDir = "../a4y_uploads/$username/$lastID/";
+
+            // Creates the user's folder if it doesn't exist
+            if (!is_dir('../a4y_uploads/$username')) {
+                mkdir("../a4y_uploads/$username", 0777, true);
+            }
+
+            // Creates the directory for the post in the user's folder
+            mkdir("../a4y_uploads/$username/$lastID", 0777, true);
 
             foreach ($_FILES as $file) {
-                if (move_uploaded_file($file['name'], $targetDir)) {
+                $targetDir = "../a4y_uploads/$username/$lastID/{$file['name']}";
+                // print_r($file);
+                if (move_uploaded_file($file['tmp_name'], $targetDir)) {
                     echo 'The image ' . $file['name'] . ' has been uploaded successfully!';
                 } else {
-                    echo 'error uploading image ' . $file['name'];
+                    // echo 'error uploading image ' . $file['name'];
+                    echo 'why...';
                 }
             }
 
             echo "<h1>Post made successfully!<h1>";
             echo "<h3>Check the home page to see your post!<h3>";
             exit;
-        } else {
-            echo "Error uploading post...";
-            exit;
         }
+        if ($_FILES['site_img']['error'] > 0) {
+		    echo '<p class="error">The file could not be uploaded because: <strong>';
+
+			// Print a message based upon the error.
+			switch ($_FILES['site_img']['error']) {
+				case 1:
+					echo 'The file exceeds the upload_max_filesize setting in php.ini.';
+					break;
+				case 2:
+					echo 'The file exceeds the MAX_FILE_SIZE setting in the HTML form.';
+					break;
+				case 3:
+					echo 'The file was only partially uploaded.';
+					break;
+				case 4:
+					echo 'No file was uploaded.';
+					break;
+				case 6:
+					echo 'No temporary folder was available.';
+					break;
+				case 7:
+					echo 'Unable to write to the disk.';
+					break;
+				case 8:
+					echo 'File upload stopped.';
+					break;
+				default:
+					echo 'A system error occurred.';
+					break;
+			} // End of switch.
+			echo '</strong></p>';
+		} 
     }
 
 ?>
