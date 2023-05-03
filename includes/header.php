@@ -2,6 +2,12 @@
   session_start();
 	include './includes/title.php';
   $currentPage = basename($_SERVER['SCRIPT_FILENAME']);
+  if ($_SESSION['username'] || $currentPage == 'create_post.php' || $currentPage == 'register.php' || $currentPage == 'login.php') {
+    include 'secure_conn.php';
+  } else {
+    include 'reg_conn.php';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
       rel="stylesheet"
     >
-    <title><?php if(isset($title)) {echo "$title &ndash; ";} ?>Albums4You</title>
+    <title><?="$title &ndash; "?>Albums4You</title>
   </head>
   <body>
     <header>
