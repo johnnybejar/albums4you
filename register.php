@@ -57,10 +57,12 @@
         if (!$errors) {
             // Folder name will be the username as the username is a foreign key in Posts
             $folder = $username;
-            $sql2 = "INSERT INTO A4Y_Users (username, email, pass, folder, subscribe) VALUES (?, ?, ?, ?, ?)";
+            // Only way for a user to be converted to admin is directly through the DB
+            $admin = 0;
+            $sql2 = "INSERT INTO A4Y_Users (username, email, pass, folder, subscribe, admin) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt2 = mysqli_prepare($dbc, $sql2);
             $pwHash = password_hash($password, PASSWORD_DEFAULT);
-            mysqli_stmt_bind_param($stmt2, 'ssssi', $username, $email, $pwHash, $folder, $subscribe);
+            mysqli_stmt_bind_param($stmt2, 'ssssii', $username, $email, $pwHash, $folder, $subscribe, $admin);
             mysqli_stmt_execute($stmt2);
             echo "<section class=\"form-success\">";
             if (mysqli_stmt_affected_rows($stmt2)) {

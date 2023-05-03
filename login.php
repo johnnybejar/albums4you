@@ -68,7 +68,7 @@
 
         <?php if (isset($errors['password'])) echo "<span class=\"warning\">{$errors['password']}</span>" ?>
         <label for="password">Password: </label>
-        <input name="password" id="password" type="text">
+        <input name="password" id="password" type="password">
 
         <input name="submit" id="submit" type="submit" value="Login">
     </fieldset>

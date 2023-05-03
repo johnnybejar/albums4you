@@ -118,11 +118,15 @@
 
             foreach ($_FILES as $file) {
                 $targetDir = "../a4y_uploads/$username/$lastID/{$file['name']}";
-                if (move_uploaded_file($file['tmp_name'], $targetDir)) {
-                    // echo '<h6>The image ' . $file['name'] . ' has been uploaded successfully!</h6>';
-                    continue;
-                } else {
-                    // echo '<h6>Error uploading image: ' . $file['name'] . '</h6>';
+                
+                $check = getimagesize($file['tmp_name']);
+                $maxSize = 1024*1024;
+                // Checks to make sure that the file is an image and not larger than 1MB to maximize security
+                if ($check && $file['size'] <= $maxSize) {
+                    if (move_uploaded_file($file['tmp_name'], $targetDir)) {
+                        // echo '<h6>The image ' . $file['name'] . ' has been uploaded successfully!</h6>';
+                        continue;
+                    }
                 }
             }
 
