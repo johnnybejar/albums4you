@@ -6,10 +6,7 @@
     // upload an image that is sized similarly to an album cover
     if (isset($_POST['submit'])) {
         require_once '../../../mysqli_connect.php';
-        print_r($_FILES);
-
         $username = $_SESSION['username'];
-
         $errors = 0;
 
         if (empty($_FILES['cover1']['name'])) {
@@ -96,10 +93,19 @@
             $title4,
             $artist4 
         );
+        
         mysqli_stmt_execute($stmt);
+
+        // This try catch block helped me figure out an error where
+        // I had to increase the varchar of some columns in satoshi
+        // try {
+        //     mysqli_stmt_execute($stmt);
+        // } catch (Exception $e) {
+        //     echo $e;
+        // }
+
         if (mysqli_stmt_affected_rows($stmt)) {
             // Now uploading images...
-            echo '<span>Uploading images...</span>';
             $lastID = mysqli_insert_id($dbc);
 
             // Creates the user's folder if it doesn't exist
@@ -112,16 +118,15 @@
 
             foreach ($_FILES as $file) {
                 $targetDir = "../a4y_uploads/$username/$lastID/{$file['name']}";
-                // print_r($file);
                 if (move_uploaded_file($file['tmp_name'], $targetDir)) {
-                    echo 'The image ' . $file['name'] . ' has been uploaded successfully!';
+                    // echo '<h6>The image ' . $file['name'] . ' has been uploaded successfully!</h6>';
+                    continue;
                 } else {
-                    // echo 'error uploading image ' . $file['name'];
-                    echo 'why...';
+                    // echo '<h6>Error uploading image: ' . $file['name'] . '</h6>';
                 }
             }
 
-            echo "<h1>Post made successfully!<h1>";
+            echo "<h1>Post made successfully!<h1><br>";
             echo "<h3>Check the home page to see your post!<h3>";
             exit;
         }

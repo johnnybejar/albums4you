@@ -69,7 +69,7 @@
                 } else {
                     echo "<h2>Thank you for registering with us, $username! You did not subscribe to our newsletter.</h2>";
                 }
-                echo "<h3>You can now post on our forum.</h3>";
+                echo "<h3>You can now login and post on our forum.</h3>";
             } else {
                 echo "<h2>We're sorry. We are unable to add your account at this time.</h2><h3>Please try again later</h3>";
             }

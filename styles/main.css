@@ -105,6 +105,7 @@ main {
 
 .profile-name {
   font-size: 1.6em;
+  word-wrap: break-word;
   width: 20%;
 }
 
