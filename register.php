@@ -5,6 +5,7 @@
     if (isset($_POST['submit'])) {
         $errors = array();
 
+        // Validate input
         if (!empty($_POST['username'])) {
             $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         } else {
@@ -39,6 +40,8 @@
         mysqli_stmt_bind_param($stmt, 'ss', $email, $username);
         mysqli_stmt_execute($stmt);
         $result=mysqli_stmt_get_result($stmt);
+
+        // Check to make sure the email or username does not exist, both must be unique
         if (mysqli_num_rows($result) >=1) {
             $res = mysqli_fetch_assoc($result);
             if ($res['email'] == $email) {
@@ -54,6 +57,8 @@
         } else {
             $subscribe = 0;
         }
+
+        // Once here, we confirm the user input is valid and does not yet exist
         if (!$errors) {
             // Folder name will be the username as the username is a foreign key in Posts
             $folder = $username;

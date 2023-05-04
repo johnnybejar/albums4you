@@ -5,6 +5,7 @@
     if (isset($_POST['submit'])) {
         $errors = array();
 
+        // Trimming, sanitizing, and validating input
         $email = filter_var(trim($_POST['email']));
 
         if (empty($email)) {
@@ -23,9 +24,10 @@
             $errors['password'] = 'A password is required:';
         }
 
+        // Logs the user in once input is validated and confirms the credentials are valid
         if (!$errors) {
             require_once '../../../mysqli_connect.php';
-            $sql = "SELECT username, email, pass FROM A4Y_Users WHERE email = ?";
+            $sql = "SELECT username, email, pass, folder, admin FROM A4Y_Users WHERE email = ?";
             $stmt = mysqli_prepare($dbc, $sql);
             mysqli_stmt_bind_param($stmt, 's', $email);
             mysqli_stmt_execute($stmt);
@@ -39,10 +41,15 @@
                 $folder = $result2['folder'];
                 if (password_verify($password, $pw_hash)) {
                     $username = $result2['username'];
+                    $admin = $result2['admin'];
                     session_start();
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $email;
                     $_SESSION['folder'] = $folder;
+                    // Initialize admin controls
+                    if ($admin == 1) {
+                        $_SESSION['admin'] = 1;
+                    }
                     header("Location: logged_in.php");
                     exit;
                 } else {

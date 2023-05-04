@@ -2,6 +2,8 @@
   session_start();
 	include './includes/title.php';
   $currentPage = basename($_SERVER['SCRIPT_FILENAME']);
+  
+  // SSL Connection
   if ($_SESSION['username'] || $currentPage == 'create_post.php' || $currentPage == 'register.php' || $currentPage == 'login.php') {
     include 'secure_conn.php';
   } else {

@@ -3,12 +3,12 @@
   include('includes/menu.php');
 ?>
 
-<section id="about-section">
+<div id="about-section">
   <p>
     A website where you can share 4 of your most favorite albums with other people
     on the Internet!
   </p>
-</section>
+</div>
 
 <?php
   include('includes/footer.php');

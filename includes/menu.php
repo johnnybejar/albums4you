@@ -27,6 +27,13 @@
                 echo '<li><a href="register.php">Register</a></li>';
             } 
         }
+        if (isset($_SESSION['admin'])) {
+            if ($currentPage == 'admin.php') {
+                echo '<li id="here"><a href="admin.php">Admin</a></li>';
+            } else {
+                echo '<li><a href="admin.php">Admin</a></li>';
+            }
+        }
     ?>
     <li <?php if ($currentPage == 'about.php') echo 'id="here"'; ?>><a href="about.php">About</a></li>
 </ul>

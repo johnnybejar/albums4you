@@ -130,9 +130,11 @@
                         }
                     }
                 }
-
+                echo '<section class="form-success">';
                 echo "<h1>Post made successfully!</h1>";
                 echo "<h3>Check the home page to see your post!</h3>";
+                echo '</section>';
+                include 'includes/footer.php';
                 exit;
             }
         } else {

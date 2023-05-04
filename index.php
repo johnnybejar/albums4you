@@ -3,7 +3,7 @@
   require('includes/menu.php');
 
   require_once '../../../mysqli_connect.php';
-  $query = 'SELECT * FROM A4Y_Posts';
+  $query = 'SELECT * FROM A4Y_Posts ORDER BY postid DESC';
   $result = mysqli_query($dbc, $query);
 
   // We'll store all the info from a single row, store it into an array,
